@@ -145,7 +145,7 @@ kiwi_be_read_password(machine_msg_t *msg, kiwi_password_t *pw)
 	size = machine_msg_get_size(msg);
 
 	kiwi_header_t *header = (kiwi_header_t*)data;
-	uint32_t len;
+	uint32_t len = 0;
 	int rc = kiwi_read(&len, &data, &size);
 	if (kiwi_unlikely(rc != 0))
 		return -1;

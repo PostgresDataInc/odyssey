@@ -27,7 +27,7 @@ kiwi_fe_read_ready(machine_msg_t *msg, int *status)
 	size = machine_msg_get_size(msg);
 
 	kiwi_header_t *header = (kiwi_header_t*)data;
-	uint32_t len;
+	uint32_t len = 0;
 	int rc = kiwi_read(&len, &data, &size);
 	if (kiwi_unlikely(rc != 0))
 		return -1;
@@ -71,7 +71,7 @@ kiwi_fe_read_auth(machine_msg_t *msg, uint32_t *type, char salt[4])
 	uint32_t size;
 	size = machine_msg_get_size(msg);
 	kiwi_header_t *header = (kiwi_header_t*)data;
-	uint32_t len;
+	uint32_t len = 0;
 	int rc = kiwi_read(&len, &data, &size);
 	if (kiwi_unlikely(rc != 0))
 		return -1;
@@ -111,7 +111,7 @@ kiwi_fe_read_parameter(machine_msg_t *msg,
 	size = machine_msg_get_size(msg);
 
 	kiwi_header_t *header = (kiwi_header_t*)data;
-	uint32_t len;
+	uint32_t len = 0;
 	int rc = kiwi_read(&len, &data, &size);
 	if (kiwi_unlikely(rc != 0))
 		return -1;
@@ -143,7 +143,7 @@ kiwi_fe_read_error(machine_msg_t *msg, kiwi_fe_error_t *error)
 	size = machine_msg_get_size(msg);
 
 	kiwi_header_t *header = (kiwi_header_t*)data;
-	uint32_t len;
+	uint32_t len = 0;
 	int rc = kiwi_read(&len, &data, &size);
 	if (kiwi_unlikely(rc != 0))
 		return -1;

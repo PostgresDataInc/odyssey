@@ -418,6 +418,9 @@ kiwi_be_write_row_descriptionf(char *fmt, ...)
 			rc = kiwi_be_write_row_description_add(msg, name, name_len,
 			                                       0, 0, 20 /* INT8OID */, 8, 0, 0);
 			break;
+		default:
+			rc = -1;
+			break;
 		}
 		if (rc == -1) {
 			machine_msg_free(msg);
